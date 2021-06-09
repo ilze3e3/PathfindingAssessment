@@ -20,13 +20,14 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If waypoint is reached choose a new waypoint
         if(reachStatus)
         {
             ChooseWaypoint();
             reachStatus = false;
         }
 
-
+        // If close to enough to waypoint then set reachStatus to true
         if (!this.GetComponent<NavMeshAgent>().pathPending && this.GetComponent<NavMeshAgent>().remainingDistance < 0.1f)
         {
             reachStatus = true;
