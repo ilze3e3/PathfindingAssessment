@@ -38,6 +38,7 @@ public class Agent : MonoBehaviour
 
     private void ChooseWaypoint()
     {
+        // Select a random waypoint from a selection of waypoints
         if(waypoints != null && waypoints.Count != 0)
         {
             currWayPoint = waypoints[(int)Random.Range(0, waypoints.Count)];

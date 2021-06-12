@@ -29,14 +29,17 @@ public class Gate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If at the bottom then move up
         if(Gotop && this.transform.position.y < startPos.y)
         {
             this.transform.position = (new Vector3(this.transform.position.x, this.transform.position.y + 1 * Time.deltaTime, this.transform.position.z));
         }
+        // if at the top then move down
         if(Gobottom && this.transform.position.y > endPos.y) 
         { 
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1 * Time.deltaTime, this.transform.position.z);
         }
+        // If at the top then start a delay
         if (this.transform.position.y >= startPos.y && Gotop == true)
         {
             StartCoroutine("delayTime");
@@ -48,7 +51,7 @@ public class Gate : MonoBehaviour
 
             }
         }
-        
+        // If at the bottom then start a delay
         if (this.transform.position.y <= endPos.y && Gobottom == true)
         {
             StartCoroutine("delayTime");
